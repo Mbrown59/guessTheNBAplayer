@@ -1,0 +1,50 @@
+<%- include("header.ejs") %>
+
+    <div id="input">
+        <form action="/" method="post">
+            <input type="text" placeholder="Type your guess here" name="Typeguess" />
+            <button type="submit" name="button">Enter</button>
+        </form>
+    </div>
+
+    <!-- <button type="button" name="hint">Hint</button>
+    <p>bio</p> -->
+
+    <% for(var i=0; i < gPlayer.length; i++){ %>
+        <div id="guesses">
+            <div>
+                <p>Team: <%= gPlayer[i][0] %>
+                </p>
+            </div>
+            <div>
+                <p>conference: <%= gPlayer[i][1] %>
+                </p>
+            </div>
+            <div>
+                <p>height: <%= gPlayer[i][2] %>
+                </p>
+            </div>
+            <div>
+                <p>weight: <%= gPlayer[i][3] %>
+                </p>
+            </div>
+            <div>
+                <p>experience: <%= gPlayer[i][4] %>
+                </p>
+            </div>
+            <div>
+                <p>jersey number: <%= gPlayer[i][5] %>
+                </p>
+            </div>
+            <div>
+                <p>position: <%= gPlayer[i][6] %>
+                </p>
+            </div>
+        </div>
+        <% } %>
+
+
+            </div>
+            </body>
+
+            </html>
