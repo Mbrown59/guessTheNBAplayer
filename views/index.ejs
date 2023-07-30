@@ -7,44 +7,218 @@
         </form>
     </div>
 
-    <!-- <button type="button" name="hint">Hint</button>
-    <p>bio</p> -->
+    <h1 class="glow">Rules</h2>
+    <div id="rules">
+    <div class="match">✅</div>
+    <div class="nomatch">❌</div>
+    <div class="up">☝️</div>
+    <div class="down">👇</div>
+</div>
+
+
+    <div id="guesses" class="infoHeader">
+        <div>
+            <h2>Name</h2>
+        </div>
+        <div>
+            <h2>Team
+            </h2>
+        </div>
+        <div>
+            <h2>Conference
+            </h2>
+        </div>
+        <div>
+            <h2>Height
+            </h2>
+        </div>
+        <div>
+            <h2>Weight
+            </h2>
+        </div>
+        <div>
+            <h2>Years of Experience
+            </h2>
+        </div>
+        <div>
+            <h2>Jersey Number
+            </h2>
+        </div>
+        <div>
+            <h2>Position
+            </h2>
+        </div>
+        <div>
+            <h2>College</h2>
+        </div>
+    </div>
 
     <% for(var i=0; i < gPlayer.length; i++){ %>
-        <div id="guesses">
-            <div>
-                <p>Team: <%= gPlayer[i][0] %>
-                </p>
+        <div id="guesses" >
+            <% if(Player[i] == true){ %>
+            <div class="match">
+                <!-- player -->
+                <img id="player" src=<%=gPlayer[i][0] %> alt=<%= gPlayer[i][1] %>>
+                    <h2>
+                        <%= gPlayer[i][1] %>
+                    </h2>
             </div>
-            <div>
-                <p>conference: <%= gPlayer[i][1] %>
-                </p>
+            <% }else{ %>
+                <div class="nomatch">
+                <!-- player -->
+                <img id="player" src=<%=gPlayer[i][0] %> alt=<%= gPlayer[i][1] %>>
+                    <h2>
+                        <%= gPlayer[i][1] %>
+                    </h2>
             </div>
-            <div>
-                <p>height: <%= gPlayer[i][2] %>
-                </p>
+            <% } %>
+
+
+
+            
+            <% if(Team[i] == true){ %>
+            <div class="match">
+                <!-- Team -->
+                
+                        <img src=<%=gPlayer[i][3] %> alt=<%= gPlayer[i][2] %>>
+                
             </div>
-            <div>
-                <p>weight: <%= gPlayer[i][3] %>
-                </p>
+            <% }else{ %>
+                <div class="nomatch">
+                    <!-- Team -->
+                    
+                            <img src=<%=gPlayer[i][3] %> alt=<%= gPlayer[i][2] %>>
+                    
+                </div>
+                <% } %>
+
+
+
+                <% if(Conference[i] == true){ %>
+            <div class="match">
+                <h2><%= gPlayer[i][4] %>
+                </h2>
             </div>
-            <div>
-                <p>experience: <%= gPlayer[i][4] %>
-                </p>
+            <% }else{ %>
+            <div class="nomatch">
+                <h2><%= gPlayer[i][4] %>
+                </h2>
             </div>
-            <div>
-                <p>jersey number: <%= gPlayer[i][5] %>
-                </p>
+            <% } %>
+
+
+
+<!-- Height -->
+            <% if(Height[i] == true){ %>
+            <div class="match">
+                <h2><%= gPlayer[i][5] %>
+                </h2>
             </div>
-            <div>
-                <p>position: <%= gPlayer[i][6] %>
-                </p>
+            <% }else if(Height[i] == "up"){ %>
+                <div class="up">
+                    <h2><%= gPlayer[i][5] %>
+                    </h2>
+                </div>
+                <% }else if(Height[i] == "down"){ %>
+                    <div class="down">
+                        <h2><%= gPlayer[i][5] %>
+                        </h2>
+                    </div>
+                    <% } %>
+
+
+
+                    <!-- Weight -->
+                    <% if(Weight[i] == true){ %>
+            <div class="match">
+                <h2><%= gPlayer[i][6] %>
+                </h2>
             </div>
+            <% }else if(Weight[i] == "up"){ %>
+                <div class="up">
+                    <h2><%= gPlayer[i][6] %>
+                    </h2>
+                </div>
+                <% }else if(Weight[i] == "down"){ %>
+                    <div class="down">
+                        <h2><%= gPlayer[i][6] %>
+                        </h2>
+                    </div>
+                    <% } %>
+
+
+
+<!-- Experience -->
+<% if(Experience[i] == true){ %>
+            <div class="match">
+                <h2><%= gPlayer[i][7] %>
+                </h2>
+            </div>
+            <% }else if(Experience[i] == "up"){ %>
+                <div class="up">
+                    <h2><%= gPlayer[i][7] %>
+                    </h2>
+                </div>
+                <% }else if(Experience[i] == "down"){ %>
+                    <div class="down">
+                        <h2><%= gPlayer[i][7] %>
+                        </h2>
+                    </div>
+                    <% } %>
+
+
+
+
+            <!-- Jersey Number -->
+            <% if(Jersey[i] == true){ %>
+            <div class="match">
+                <h2><%= gPlayer[i][8] %>
+                </h2>
+            </div>
+            <% }else if(Jersey[i] == "up"){ %>
+                <div class="up">
+                    <h2><%= gPlayer[i][8] %>
+                    </h2>
+                </div>
+                <% }else if(Jersey[i] == "down"){ %>
+                    <div class="down">
+                        <h2><%= gPlayer[i][8] %>
+                        </h2>
+                    </div>
+                    <% } %>
+
+            <!-- Position -->
+            <% if(Position[i] == true){ %>
+            <div class="match">
+                <h2><%= gPlayer[i][9] %>
+                </h2>
+            </div>
+            <% }else{ %>
+                <div class="nomatch">
+                    <h2><%= gPlayer[i][9] %>
+                    </h2>
+                </div>
+                <% } %>
+
+
+                <!-- College -->
+                <% if(College[i] == true){ %>
+            <div class="match">
+                <h2><%= gPlayer[i][10] %>
+                </h2>
+            </div>
+            <% }else{ %>
+                <div class="nomatch">
+                    <h2><%= gPlayer[i][10] %>
+                    </h2>
+                </div>
+                <% } %>
         </div>
         <% } %>
 
 
             </div>
+
             </body>
 
             </html>

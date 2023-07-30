@@ -1,5 +1,8 @@
 body {
-    background-color: wheat;
+    /* background-image: url("/images/goal.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw; */
+    background-color: black;
     font-family: "Handjet", cursive;
   }
   
@@ -14,15 +17,44 @@ body {
   
   /* Header */
   #header {
-    color: red;
+    
     grid-column: span 2;
-    border-bottom: 4px red solid;
+    border-bottom: 4px black solid;
     text-align: center;
     font-size: 1.5em;
-    text-shadow: 0 0 5px red, 0 0 25px red, 0 0 50px red, 0 0 75px red,
-      0 0 100px red;
+    
+  }
+
+  .glow
+{
+    text-shadow: 0 0 5px #0079FF, 0 0 25px #0079FF, 0 0 50px #0079FF, 0 0 75px #0079FF,
+      0 0 100px #0079FF;
+      animation: animate 5s infinite alternate;
+      color: #0079FF;
+}
+
+
+
+  @keyframes animate
+  {
+    40%{
+        opacity: 1;
+    }
+    42%{
+        opacity: 0.8;
+    }
+    43%{
+        opacity: 1;
+    }
+    45%{
+        opacity: 0.3;
+    }
+    46%{
+        opacity: 1;
+    }
   }
   
+ 
   
   #scoreboard {
     border-radius: 20px;
@@ -31,10 +63,11 @@ body {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     width: 40%;
+    box-shadow:  0 0 5px white, 0 0 25px white, 0 0 50px white;
   }
   
   #Attempts {
-    border-right: red 4px solid;
+    border-right: black 4px solid;
   }
   
   #scoreboard div
@@ -93,25 +126,61 @@ body {
   {
     border-radius: 20px;
     background-color: white;
-    color: red;
-    text-shadow: 0 0 5px red, 0 0 25px red, 0 0 50px red, 0 0 75px red,
-      0 0 100px red;
+    color: black;
+    text-shadow: 0 0 5px black, 0 0 25px black, 0 0 50px black, 0 0 75px black,
+      0 0 100px black;
     font-family: "Handjet", cursive;
     height: 40px;
   }
-  
-  button[name="hint"]
+
+  .playAgain
   {
-    width: 80px;
-    height: 40px;
-    font-size: 1.5em;
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    text-shadow: 0 0 5px black, 0 0 25px black, 0 0 50px black, 0 0 75px black,
+      0 0 100px black;
+    font-family: "Handjet", cursive;
+    height: 70px;
+    width: 70px;
+    font-weight: bold;
   }
+  
+  button:hover
+  {
+    background-color: #FF1700;
+    color: white;
+    text-shadow: 0 0 5px white, 0 0 25px white, 0 0 50px white, 0 0 75px white,
+      0 0 100px white;
+  }
+
+  /* rules */
+  #rules
+  {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0;
+    width: 20%;
+  }
+
+  #rules div
+  {
+    padding: 10px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
   
   /* player info */
   #guesses
   {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
     gap: 0;
     width: 100%;
@@ -121,4 +190,66 @@ body {
   {
     border: black 2px solid;
     padding: 10px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
   }
+
+  #guesses div h2
+  {
+    color: black;
+    font-weight: bold;
+  }
+
+  @media (max-width: 1201px)
+  {
+    #guesses div h2
+    {
+      color: black;
+      font-weight: bold;
+      font-size: 70%;
+    }
+  }
+
+
+  #guesses div img
+  {
+    width: 100%;
+  }
+
+  #guesses div #player
+  {
+    width: 50%;
+  }
+
+  .match
+  {
+    border: #06FF00 4px solid !important;
+    box-shadow: 0 0 5px #06FF00, 0 0 25px #06FF00, 0 0 50px #06FF00, 0 0 75px #06FF00,
+      0 0 100px #06FF00 !important;
+  }
+
+  .nomatch
+  {
+    border: #FF1700 4px solid !important;
+    box-shadow: 0 0 5px #FF1700, 0 0 25px #FF1700, 0 0 50px #FF1700, 0 0 75px #FF1700,
+      0 0 100px #FF1700 !important;
+  }
+
+  .up
+  {
+      border: #FFE400 4px solid !important;
+      box-shadow: 0 0 5px #FFE400, 0 0 25px #FFE400, 0 0 50px #FFE400, 0 0 75px #FFE400,
+        0 0 100px #FFE400 !important;
+  }
+
+  .down
+  {
+    border: #FF8E00 4px solid !important;
+      box-shadow: 0 0 5px #FF8E00, 0 0 25px #FF8E00, 0 0 50px #FF8E00, 0 0 75px #FF8E00,
+        0 0 100px #FF8E00 !important;
+  }
+

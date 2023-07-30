@@ -1,0 +1,132 @@
+<%- include("header.ejs") %>
+
+    <h1 class="glow">
+        <%= GameOver %>
+    </h1>
+
+    <div id="guesses" class="infoHeader">
+        <div>
+            <h2>Name</h2>
+        </div>
+        <div>
+            <h2>Team
+            </h2>
+        </div>
+        <div>
+            <h2>Conference
+            </h2>
+        </div>
+        <div>
+            <h2>Height
+            </h2>
+        </div>
+        <div>
+            <h2>Weight
+            </h2>
+        </div>
+        <div>
+            <h2>Years of Experience
+            </h2>
+        </div>
+        <div>
+            <h2>Jersey Number
+            </h2>
+        </div>
+        <div>
+            <h2>Position
+            </h2>
+        </div>
+        <div>
+            <h2>College</h2>
+        </div>
+    </div>
+
+
+    <div id="guesses">
+        <!-- Player -->
+        <div class="match">
+            <img id="player" src=<%=rPlayer[0] %> alt=<%= rPlayer[1] %>>
+                <h2>
+                    <%= rPlayer[1] %>
+                </h2>
+        </div>
+
+
+
+        <!-- Team -->
+        <div class="match">
+            <img src=<%=rPlayer[3] %> alt=<%= rPlayer[2] %>>
+        </div>
+
+
+
+        <!-- Conference -->
+        <div class="match">
+            <h2>
+                <%= rPlayer[4] %>
+            </h2>
+        </div>
+
+
+
+
+        <!-- Height -->
+        <div class="match">
+            <h2>
+                <%= rPlayer[5] %>
+            </h2>
+        </div>
+
+
+
+
+        <!-- Weight -->
+        <div class="match">
+            <h2>
+                <%= rPlayer[6] %>
+            </h2>
+        </div>
+
+
+
+
+        <!-- Experience -->
+        <div class="match">
+            <h2>
+                <%= rPlayer[7] %>
+            </h2>
+        </div>
+
+
+
+
+
+        <!-- Jersey Number -->
+        <div class="match">
+            <h2>
+                <%= rPlayer[8] %>
+            </h2>
+        </div>
+
+
+        <!-- Position -->
+        <div class="match">
+            <h2>
+                <%= rPlayer[9] %>
+            </h2>
+        </div>
+
+
+
+        <!-- College -->
+        <div class="match">
+            <h2>
+                <%= rPlayer[10] %>
+            </h2>
+        </div>
+
+    </div>
+
+    <form action="/" method="get">
+    <button type="submit" class="playAgain">Play Again</button>
+    </form>
