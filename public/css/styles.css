@@ -1,255 +1,221 @@
 body {
-    /* background-image: url("/images/goal.jpg");
-    background-repeat: no-repeat;
-    background-size: 100vw; */
-    background-color: black;
-    font-family: "Handjet", cursive;
-  }
-  
-  #game
-  {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    height: 100vh;
-    align-items: center;
-  }
-  
-  /* Header */
-  #header {
-    
-    grid-column: span 2;
-    border-bottom: 4px black solid;
-    text-align: center;
-    font-size: 1.5em;
-    
-  }
-
-  .glow
-{
-    text-shadow: 0 0 5px #0079FF, 0 0 25px #0079FF, 0 0 50px #0079FF, 0 0 75px #0079FF,
-      0 0 100px #0079FF;
-      animation: animate 5s infinite alternate;
-      color: #0079FF;
+  background-color: black;
+  font-family: "Handjet", cursive;
 }
 
+#game {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100vh;
+  align-items: center;
+}
 
+/* Header */
+#header {
+  grid-column: span 2;
+  border-bottom: 4px black solid;
+  text-align: center;
+  font-size: 1.5em;
+}
 
-  @keyframes animate
-  {
-    40%{
-        opacity: 1;
-    }
-    42%{
-        opacity: 0.8;
-    }
-    43%{
-        opacity: 1;
-    }
-    45%{
-        opacity: 0.3;
-    }
-    46%{
-        opacity: 1;
-    }
+.glow {
+  text-shadow: 0 0 5px #0079ff, 0 0 25px #0079ff, 0 0 50px #0079ff,
+    0 0 75px #0079ff, 0 0 100px #0079ff;
+  animation: animate 5s infinite alternate;
+  color: #0079ff;
+}
+
+@keyframes animate {
+  40% {
+    opacity: 1;
   }
-  
- 
-  
-  #scoreboard {
-    border-radius: 20px;
-    background-color: white;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    width: 40%;
-    box-shadow:  0 0 5px white, 0 0 25px white, 0 0 50px white;
+  42% {
+    opacity: 0.8;
   }
-  
-  #Attempts {
-    border-right: black 4px solid;
+  43% {
+    opacity: 1;
   }
-  
-  #scoreboard div
-  {
-    padding-left: 5%;
-    padding-top: 5%;
+  45% {
+    opacity: 0.3;
   }
-  /* Header: Text Box */
-  
-  #input input[type="text"]::-webkit-input-placeholder {
-    font-family: "Handjet", cursive;
-    font-size: 1.5em;
+  46% {
+    opacity: 1;
   }
-  
-  #input input[type="text"]:-ms-input-placeholder {
-    font-family: "Handjet", cursive;
-    font-size: 1.5em;
-  }
-  
-  #input input[type="text"]:-moz-placeholder {
-    font-family: "Handjet", cursive;
-    font-size: 1.5em;
-  }
-  
-  #input input[type="text"]::-moz-placeholder {
-    font-family: "Handjet", cursive;
-    font-size: 1.5em;
-  }
-  
-  #input
-  {
-    width: 100%;
-    height: 10%;
-    padding-left: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  form
-  {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #input input[type="text"]
-  {
-    width: 30%;
-    height: 40px;
-    border-radius: 20px;
-  }
-  
-  button
-  {
-    border-radius: 20px;
-    background-color: white;
+}
+
+#scoreboard {
+  border-radius: 20px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 40%;
+  box-shadow: 0 0 5px white, 0 0 25px white, 0 0 50px white;
+}
+
+#Attempts {
+  border-right: black 4px solid;
+}
+
+#scoreboard div {
+  padding-left: 5%;
+  padding-top: 5%;
+}
+/* Header: Text Box */
+
+#input input[type="text"]::-webkit-input-placeholder {
+  font-family: "Handjet", cursive;
+  font-size: 1.5em;
+}
+
+#input input[type="text"]:-ms-input-placeholder {
+  font-family: "Handjet", cursive;
+  font-size: 1.5em;
+}
+
+#input input[type="text"]:-moz-placeholder {
+  font-family: "Handjet", cursive;
+  font-size: 1.5em;
+}
+
+#input input[type="text"]::-moz-placeholder {
+  font-family: "Handjet", cursive;
+  font-size: 1.5em;
+}
+
+#input {
+  width: 100%;
+  height: 10%;
+  padding-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#input input[type="text"] {
+  width: 30%;
+  height: 40px;
+  border-radius: 20px;
+}
+
+button {
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+  text-shadow: 0 0 5px black, 0 0 25px black, 0 0 50px black, 0 0 75px black,
+    0 0 100px black;
+  font-family: "Handjet", cursive;
+  height: 40px;
+}
+
+.playAgain {
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+  text-shadow: 0 0 5px black, 0 0 25px black, 0 0 50px black, 0 0 75px black,
+    0 0 100px black;
+  font-family: "Handjet", cursive;
+  height: 70px;
+  width: 70px;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #ff1700;
+  color: white;
+  text-shadow: 0 0 5px white, 0 0 25px white, 0 0 50px white, 0 0 75px white,
+    0 0 100px white;
+}
+
+/* rules */
+#rules {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 0;
+  width: 20%;
+}
+
+#rules div {
+  padding: 10px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* player info */
+#guesses {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 0;
+  width: 100%;
+}
+
+#guesses div {
+  border: black 2px solid;
+  padding: 10px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#guesses div h2 {
+  color: black;
+  font-weight: bold;
+}
+
+@media (max-width: 1201px) {
+  #guesses div h2 {
     color: black;
-    text-shadow: 0 0 5px black, 0 0 25px black, 0 0 50px black, 0 0 75px black,
-      0 0 100px black;
-    font-family: "Handjet", cursive;
-    height: 40px;
-  }
-
-  .playAgain
-  {
-    border-radius: 20px;
-    background-color: white;
-    color: black;
-    text-shadow: 0 0 5px black, 0 0 25px black, 0 0 50px black, 0 0 75px black,
-      0 0 100px black;
-    font-family: "Handjet", cursive;
-    height: 70px;
-    width: 70px;
     font-weight: bold;
+    font-size: 70%;
   }
-  
-  button:hover
-  {
-    background-color: #FF1700;
-    color: white;
-    text-shadow: 0 0 5px white, 0 0 25px white, 0 0 50px white, 0 0 75px white,
-      0 0 100px white;
-  }
+}
 
-  /* rules */
-  #rules
-  {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    gap: 0;
-    width: 20%;
-  }
+#guesses div img {
+  width: 100%;
+}
 
-  #rules div
-  {
-    padding: 10px;
-    background-color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-  
-  
-  /* player info */
-  #guesses
-  {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    gap: 0;
-    width: 100%;
-  }
-  
-  #guesses div
-  {
-    border: black 2px solid;
-    padding: 10px;
-    background-color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
+#guesses div #player {
+  width: 50%;
+}
 
-  #guesses div h2
-  {
-    color: black;
-    font-weight: bold;
-  }
+.match {
+  border: #06ff00 4px solid !important;
+  box-shadow: 0 0 5px #06ff00, 0 0 25px #06ff00, 0 0 50px #06ff00,
+    0 0 75px #06ff00, 0 0 100px #06ff00 !important;
+}
 
-  @media (max-width: 1201px)
-  {
-    #guesses div h2
-    {
-      color: black;
-      font-weight: bold;
-      font-size: 70%;
-    }
-  }
+/* Player Info */
+.nomatch {
+  border: #ff1700 4px solid !important;
+  box-shadow: 0 0 5px #ff1700, 0 0 25px #ff1700, 0 0 50px #ff1700,
+    0 0 75px #ff1700, 0 0 100px #ff1700 !important;
+}
 
+.up {
+  border: #ffe400 4px solid !important;
+  box-shadow: 0 0 5px #ffe400, 0 0 25px #ffe400, 0 0 50px #ffe400,
+    0 0 75px #ffe400, 0 0 100px #ffe400 !important;
+}
 
-  #guesses div img
-  {
-    width: 100%;
-  }
-
-  #guesses div #player
-  {
-    width: 50%;
-  }
-
-  .match
-  {
-    border: #06FF00 4px solid !important;
-    box-shadow: 0 0 5px #06FF00, 0 0 25px #06FF00, 0 0 50px #06FF00, 0 0 75px #06FF00,
-      0 0 100px #06FF00 !important;
-  }
-
-  .nomatch
-  {
-    border: #FF1700 4px solid !important;
-    box-shadow: 0 0 5px #FF1700, 0 0 25px #FF1700, 0 0 50px #FF1700, 0 0 75px #FF1700,
-      0 0 100px #FF1700 !important;
-  }
-
-  .up
-  {
-      border: #FFE400 4px solid !important;
-      box-shadow: 0 0 5px #FFE400, 0 0 25px #FFE400, 0 0 50px #FFE400, 0 0 75px #FFE400,
-        0 0 100px #FFE400 !important;
-  }
-
-  .down
-  {
-    border: #FF8E00 4px solid !important;
-      box-shadow: 0 0 5px #FF8E00, 0 0 25px #FF8E00, 0 0 50px #FF8E00, 0 0 75px #FF8E00,
-        0 0 100px #FF8E00 !important;
-  }
-
+.down {
+  border: #ff8e00 4px solid !important;
+  box-shadow: 0 0 5px #ff8e00, 0 0 25px #ff8e00, 0 0 50px #ff8e00,
+    0 0 75px #ff8e00, 0 0 100px #ff8e00 !important;
+}

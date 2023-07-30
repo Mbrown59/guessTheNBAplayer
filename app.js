@@ -22,8 +22,12 @@ var correctCollege = [];
 
 //name of players that the users type in
 var playerGuesses = [];
+
 //index of the players that the users type in
 var index = [];
+
+//info about all team
+var teamInfo;
 
 //all active player names
 var Name = [];
@@ -67,12 +71,12 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", async function (req, res) {
-  try {
+  try 
+  {
     //JSON results from the API URL
     const result = await axios.get(API_URL);
 
-    console.log("Create Random: " + createRandom);
-
+    //if createRandom is false, create a random player. If createRandom is true, then do not create another random player.
     if(createRandom == false)
     {
         random = Math.floor(Math.random() * result.data.length);
@@ -84,10 +88,10 @@ app.get("/", async function (req, res) {
     }
      
 
-    
 
-    //separating player names and ids
-    for (var i = 0; i < result.data.length; i++) {
+    //separating player names and ids into separate arrays
+    for (var i = 0; i < result.data.length; i++) 
+    {
       var fullName = result.data[i].FirstName + " " + result.data[i].LastName;
       Name.push(fullName.toLowerCase());
       ID.push(result.data[i].PlayerID);
@@ -96,42 +100,48 @@ app.get("/", async function (req, res) {
     //random player that user is trying to guess
     randomPlayer = result.data[random];
 
-    const teamInfo = await axios.get(
-      "https://api.sportsdata.io/v3/nba/scores/json/AllTeams?key=ebf007de2c834bf6b2be8e153fb6a85d"
-    );
+    //JSON data for team info
+     teamInfo = await axios.get("https://api.sportsdata.io/v3/nba/scores/json/AllTeams?key=ebf007de2c834bf6b2be8e153fb6a85d");
 
+    //Random player team
     Rteam = JSON.stringify(randomPlayer.Team);
     
-
-    for (var i = 0; i < teamInfo.data.length; i++) {
-      
+    //loop through the team data and assign the random player a team, conference, and logo
+    for (var i = 0; i < teamInfo.data.length; i++)
+    {
       var T = '"' + teamInfo.data[i].Key + '"';
-      if (Rteam === T) {
+      if (Rteam === T) 
+      {
         RnewTeam = teamInfo.data[i].City + " " + teamInfo.data[i].Name;
         Rconference = teamInfo.data[i].Conference;
         Rlogo = teamInfo.data[i].WikipediaLogoUrl;
       }
     }
 
+
+    //creating variables for the random player's name, height, and weight
     var name = randomPlayer.FirstName + " " + randomPlayer.LastName;
     var feet = Math.floor(randomPlayer.Height / 12);
     var inches = (((randomPlayer.Height / 12) % 1) * 12).toFixed(0);
     var height = feet + " ' " + inches;
     var weight = randomPlayer.Weight + "lb";
 
+
+    //if the random player's position is null, then set the position to undetermined
     var P = randomPlayer.DepthChartPosition;
-    
     if(P == null)
     {
         P = "Undetermined";
     }
 
+    //if the random's player's experience is null, then set the experience to 0
     var E = randomPlayer.Experience;
     if(E == null)
     {
         E = 0;
     }
 
+    //creating the array for the random player to send to ejs files
     randomPlayerInfo = [
       randomPlayer.PhotoUrl,
       name,
@@ -148,21 +158,21 @@ app.get("/", async function (req, res) {
       inches,
       randomPlayer.Weight,
     ];
+
+    console.log("Random Player Shown Below.");
     console.log(randomPlayerInfo);
 
+    //if gameOver is true, then reset the necessary variables to start over
     if(gameOver == true)
     {
          searchInfo = [];
          gameOver = false;
-          numberOfguesses = 0;
-  numberRemaining = 20;
-
-
-
+        numberOfguesses = 0;
+        numberRemaining = 20;
     }
     
 
-
+    //render index.ejs, and send all data
     res.render("index.ejs", {
       rPlayer: randomPlayerInfo,
       gPlayer: searchInfo,
@@ -178,24 +188,26 @@ app.get("/", async function (req, res) {
       Experience: correctExperience,
       Jersey: correctJersey,
       GameOver: gameOverMessage,
-
     });
   } catch (error) {
     res.render("index.ejs", { content: JSON.stringify(error.status) });
   }
 });
 
-app.post("/", async function (req, res) {
-  var g = req.body.Typeguess;
+app.post("/", async function (req, res) 
+{
+    //the string that the user typed in
+    var g = req.body.Typeguess;
 
-  console.log(searchInfo);
 
   //if the player is found
-  if (Name.includes(g.toLowerCase())) {
+  if (Name.includes(g.toLowerCase())) 
+  {
     //change the number of guesses and trys each time the user enters a guess
     numberOfguesses++;
     numberRemaining--;
 
+    //if the user runs out of trys, then set game over to true, set the message, and set createRandom to false so the user can play again
     if(numberRemaining == 0 )
     {
         gameOver = true;
@@ -207,53 +219,50 @@ app.post("/", async function (req, res) {
     //telling the server not to create another random player
     createRandom = true;
 
-    console.log("true");
-    console.log( ID[Name.indexOf(g)]);
-
+    //pushing the currently guessed player to an array, so all guesses will show on the screen
     playerGuesses.push(g);
     index.push(Name.indexOf(g));
 
-    const guessResultInfo = await axios.get(
-      "https://api.sportsdata.io/v3/nba/scores/json/Player/" +
-        ID[Name.indexOf(g)] +
-        "?key=ebf007de2c834bf6b2be8e153fb6a85d"
-    );
-
-    const teamInfo = await axios.get(
-      "https://api.sportsdata.io/v3/nba/scores/json/AllTeams?key=ebf007de2c834bf6b2be8e153fb6a85d"
-    );
+    //get the info for the guessed player
+    const guessResultInfo = await axios.get("https://api.sportsdata.io/v3/nba/scores/json/Player/" + ID[Name.indexOf(g)] + "?key=ebf007de2c834bf6b2be8e153fb6a85d");
+    
+    //setting the team for the guessed player
     team = JSON.stringify(guessResultInfo.data.Team);
 
-    for (var i = 0; i < teamInfo.data.length; i++) {
+    //loop through the team data and assign the random player a team, conference, and logo
+    for (var i = 0; i < teamInfo.data.length; i++) 
+    {
       var T = '"' + teamInfo.data[i].Key + '"';
-      if (team === T) {
+      if (team === T) 
+      {
         newTeam = teamInfo.data[i].City + " " + teamInfo.data[i].Name;
         conference = teamInfo.data[i].Conference;
         logo = teamInfo.data[i].WikipediaLogoUrl;
       }
     }
 
-    var name =
-      guessResultInfo.data.FirstName + " " + guessResultInfo.data.LastName;
+    //creating variables for the random player's name, height, and weight
+    var name = guessResultInfo.data.FirstName + " " + guessResultInfo.data.LastName;
     var feet = Math.floor(guessResultInfo.data.Height / 12);
     var inches = (((guessResultInfo.data.Height / 12) % 1) * 12).toFixed(0);
     var height = feet + " ' " + inches;
     var weight = guessResultInfo.data.Weight + "lb";
     
-
+    //if the random's player's position is null, then set the experience to undetermined
     var P = randomPlayer.DepthChartPosition;
-    
     if(P == null)
     {
         P = "Undetermined";
     }
 
+    //if the random's player's experience is null, then set the experience to 0
     var E = guessResultInfo.data.Experience;
     if(E == null)
     {
         E = 0;
     }
 
+    //creating the array for the random player to send to ejs files
     var array = [
       guessResultInfo.data.PhotoUrl,
       name,
@@ -269,41 +278,35 @@ app.post("/", async function (req, res) {
       feet,
       inches,
       guessResultInfo.data.Weight,
-    ];
+    ];    
 
-    
-
+    //push current player to an array so all guessed players will show on the screen
     searchInfo.push(array);
 
+    //calling function to check the guessed player against the random player
     checkAnswers(array, randomPlayerInfo);
 
-    // if (array[1] == randomPlayerInfo[1]) {
-    //   correctGuess = true;
-    //   //console.log("You Guessed the correct player!");
-    // }
-
-    // if (array[2] == randomPlayerInfo[2]) {
-    //   correctTeam = true;
-    // }
 
     console.log(searchInfo);
+
+    //if gameOver is true, then render gameOver.ejs and send data, if not then show index.ejs and allow player to keep playing
     if(gameOver == true)
     {
         res.render("gameOver.ejs", {
-            rPlayer: randomPlayerInfo,
-      gPlayer: searchInfo,
-      numGuesses: numberOfguesses,
-      guessesRemaining: numberRemaining,
-      Player: correctGuess,
-      Team: correctTeam,
-      Conference: correctConference,
-      Position: correctPosition,
-      College: correctCollege,
-      Height: correctHeight,
-      Weight: correctWeight,
-      Experience: correctExperience,
-      Jersey: correctJersey,
-      GameOver: gameOverMessage,
+        rPlayer: randomPlayerInfo,
+        gPlayer: searchInfo,
+        numGuesses: numberOfguesses,
+        guessesRemaining: numberRemaining,
+        Player: correctGuess,
+        Team: correctTeam,
+        Conference: correctConference,
+        Position: correctPosition,
+        College: correctCollege,
+        Height: correctHeight,
+        Weight: correctWeight,
+        Experience: correctExperience,
+        Jersey: correctJersey,
+        GameOver: gameOverMessage,
         });
     }
     else
@@ -312,12 +315,7 @@ app.post("/", async function (req, res) {
     }
     
   } else {
-    console.log("false");
-
-    
-
-    console.log("Create Random: " + createRandom);
-
+    //if player is not found show error.ejs and send data
     res.render("error.ejs", {
       rPlayer: randomPlayerInfo,
       gPlayer: searchInfo,
@@ -337,14 +335,15 @@ app.post("/", async function (req, res) {
   }
 });
 
+//start server
 app.listen(port, function (req, res) {
   console.log("Server listening on port " + port);
 });
 
 
+
 function checkAnswers(a, r)
 {
-
     //checking to see if user guessed the correct player
     if(a[1].toLowerCase() === r[1].toLowerCase())
     {
@@ -355,8 +354,7 @@ function checkAnswers(a, r)
         createRandom = false;
 
         console.log("game over");
-        gameOverMessage = "Congratulations! You Guessed " + r[1] + " Correctly!";
-        
+        gameOverMessage = "Congratulations! You Guessed " + r[1] + " Correctly!"; 
     }
     else
     {

@@ -9,45 +9,46 @@
 
     <h1 class="glow">Rules</h2>
     <div id="rules">
-    <div class="match">✅</div>
-    <div class="nomatch">❌</div>
-    <div class="up">☝️</div>
-    <div class="down">👇</div>
-</div>
+        <div class="match">✅</div>
+        <div class="nomatch">❌</div>
+        <div class="up">☝️</div>
+        <div class="down">👇</div>
+    </div>
 
 
     <div id="guesses" class="infoHeader">
         <div>
             <h2>Name</h2>
         </div>
+
         <div>
-            <h2>Team
-            </h2>
+            <h2>Team</h2>
         </div>
+
         <div>
-            <h2>Conference
-            </h2>
+            <h2>Conference</h2>
         </div>
+
         <div>
-            <h2>Height
-            </h2>
+            <h2>Height</h2>
         </div>
+
         <div>
-            <h2>Weight
-            </h2>
+            <h2>Weight</h2>
         </div>
+
         <div>
-            <h2>Years of Experience
-            </h2>
+            <h2>Years of Experience</h2>
         </div>
+
         <div>
-            <h2>Jersey Number
-            </h2>
+            <h2>Jersey Number</h2>
         </div>
+
         <div>
-            <h2>Position
-            </h2>
+            <h2>Position</h2>
         </div>
+        
         <div>
             <h2>College</h2>
         </div>
@@ -55,170 +56,173 @@
 
     <% for(var i=0; i < gPlayer.length; i++){ %>
         <div id="guesses" >
+
+            <!-- Each Player has a variable for their name, picture, team logo, conference, height, weight, years of experience, jersey number, position, college.
+            Each of these variables are passed from the server. -->
+
+
+            <!-- Player -->
+                <!-- If Player[i] is true, then the user guessed the correct player.
+                     If not, the user did not guess the correct player.
+                     The style of the div will change based on this. -->
             <% if(Player[i] == true){ %>
-            <div class="match">
-                <!-- player -->
-                <img id="player" src=<%=gPlayer[i][0] %> alt=<%= gPlayer[i][1] %>>
-                    <h2>
-                        <%= gPlayer[i][1] %>
-                    </h2>
-            </div>
-            <% }else{ %>
-                <div class="nomatch">
-                <!-- player -->
-                <img id="player" src=<%=gPlayer[i][0] %> alt=<%= gPlayer[i][1] %>>
-                    <h2>
-                        <%= gPlayer[i][1] %>
-                    </h2>
-            </div>
-            <% } %>
-
-
-
-            
-            <% if(Team[i] == true){ %>
-            <div class="match">
-                <!-- Team -->
-                
-                        <img src=<%=gPlayer[i][3] %> alt=<%= gPlayer[i][2] %>>
-                
-            </div>
-            <% }else{ %>
-                <div class="nomatch">
-                    <!-- Team -->
-                    
-                            <img src=<%=gPlayer[i][3] %> alt=<%= gPlayer[i][2] %>>
-                    
+                <div class="match">
+                    <img id="player" src=<%=gPlayer[i][0] %> alt=<%= gPlayer[i][1] %>>
+                    <h2><%= gPlayer[i][1] %></h2>
                 </div>
-                <% } %>
-
-
-
-                <% if(Conference[i] == true){ %>
-            <div class="match">
-                <h2><%= gPlayer[i][4] %>
-                </h2>
-            </div>
             <% }else{ %>
-            <div class="nomatch">
-                <h2><%= gPlayer[i][4] %>
-                </h2>
-            </div>
+                <div class="nomatch">
+                    <img id="player" src=<%=gPlayer[i][0] %> alt=<%= gPlayer[i][1] %>>
+                    <h2><%= gPlayer[i][1] %></h2>
+                </div>
             <% } %>
 
 
+            <!-- Team -->
+            <!-- If Team[i] is true, then the user guessed the correct team.
+                 If not, the user did not guess the correct team.
+                 The style of the div will change based on this. -->
+            <% if(Team[i] == true){ %>
+                <div class="match">
+                    <img src=<%=gPlayer[i][3] %> alt=<%= gPlayer[i][2] %>>
+                </div>
+            <% }else{ %>
+                <div class="nomatch">
+                    <img src=<%=gPlayer[i][3] %> alt=<%= gPlayer[i][2] %>>
+                </div>
+            <% } %>
 
-<!-- Height -->
+
+            <!-- Conference -->
+            <!-- If Conference[i] is true, then the user guessed the correct conference.
+                 If not, the user did not guess the correct conference.
+                 The style of the div will change based on this. -->
+            <% if(Conference[i] == true){ %>
+                <div class="match">
+                    <h2><%= gPlayer[i][4] %></h2>
+                </div>
+            <% }else{ %>
+                <div class="nomatch">
+                    <h2><%= gPlayer[i][4] %></h2>
+                </div>
+            <% } %>
+
+
+            <!-- Height -->
+            <!-- If Height[i] is true, then the user guessed the correct height.
+                 If Height[i] is up, then the user guessed a height lower than the target height.
+                 If Height[i] is down, then the user guessed a height higher than the target height.
+                 The style of the div will change based on this. -->
             <% if(Height[i] == true){ %>
-            <div class="match">
-                <h2><%= gPlayer[i][5] %>
-                </h2>
-            </div>
+                <div class="match">
+                    <h2><%= gPlayer[i][5] %></h2>
+                </div>
             <% }else if(Height[i] == "up"){ %>
                 <div class="up">
-                    <h2><%= gPlayer[i][5] %>
-                    </h2>
+                    <h2><%= gPlayer[i][5] %></h2>
                 </div>
-                <% }else if(Height[i] == "down"){ %>
-                    <div class="down">
-                        <h2><%= gPlayer[i][5] %>
-                        </h2>
-                    </div>
-                    <% } %>
+            <% }else if(Height[i] == "down"){ %>
+                <div class="down">
+                    <h2><%= gPlayer[i][5] %></h2>
+                </div>
+            <% } %>
 
 
-
-                    <!-- Weight -->
-                    <% if(Weight[i] == true){ %>
-            <div class="match">
-                <h2><%= gPlayer[i][6] %>
-                </h2>
-            </div>
+            <!-- Weight -->
+            <!-- If Weight[i] is true, then the user guessed the correct weight.
+                 If Weight[i] is up, then the user guessed a weight lower than the target weight.
+                 If Weight[i] is down, then the user guessed a weight higher than the target weight.
+                 The style of the div will change based on this. -->
+            <% if(Weight[i] == true){ %>
+                <div class="match">
+                    <h2><%= gPlayer[i][6] %></h2>
+                </div>
             <% }else if(Weight[i] == "up"){ %>
                 <div class="up">
-                    <h2><%= gPlayer[i][6] %>
-                    </h2>
+                    <h2><%= gPlayer[i][6] %></h2>
                 </div>
-                <% }else if(Weight[i] == "down"){ %>
-                    <div class="down">
-                        <h2><%= gPlayer[i][6] %>
-                        </h2>
-                    </div>
-                    <% } %>
+            <% }else if(Weight[i] == "down"){ %>
+                <div class="down">
+                    <h2><%= gPlayer[i][6] %></h2>
+                </div>
+            <% } %>
 
 
-
-<!-- Experience -->
-<% if(Experience[i] == true){ %>
-            <div class="match">
-                <h2><%= gPlayer[i][7] %>
-                </h2>
-            </div>
+            <!-- Experience -->
+            <!-- If Experience[i] is true, then the user guessed the correct experience.
+                 If Experience[i] is up, then the user guessed a experience lower than the target experience.
+                 If Experience[i] is down, then the user guessed a experience higher than the target experience.
+                 The style of the div will change based on this. -->
+            <% if(Experience[i] == true){ %>
+                <div class="match">
+                    <h2><%= gPlayer[i][7] %></h2>
+                </div>
             <% }else if(Experience[i] == "up"){ %>
                 <div class="up">
-                    <h2><%= gPlayer[i][7] %>
-                    </h2>
+                    <h2><%= gPlayer[i][7] %></h2>
                 </div>
-                <% }else if(Experience[i] == "down"){ %>
-                    <div class="down">
-                        <h2><%= gPlayer[i][7] %>
-                        </h2>
-                    </div>
-                    <% } %>
-
-
+            <% }else if(Experience[i] == "down"){ %>
+                <div class="down">
+                    <h2><%= gPlayer[i][7] %></h2>
+                </div>
+            <% } %>
 
 
             <!-- Jersey Number -->
+            <!-- If Jersey[i] is true, then the user guessed the correct jersey.
+                 If Jersey[i] is up, then the user guessed a jersey lower than the target jersey.
+                 If Jersey[i] is down, then the user guessed a jersey higher than the target jersey.
+                 The style of the div will change based on this. -->
             <% if(Jersey[i] == true){ %>
-            <div class="match">
-                <h2><%= gPlayer[i][8] %>
-                </h2>
-            </div>
+                <div class="match">
+                    <h2><%= gPlayer[i][8] %></h2>
+                </div>
             <% }else if(Jersey[i] == "up"){ %>
                 <div class="up">
-                    <h2><%= gPlayer[i][8] %>
-                    </h2>
+                    <h2><%= gPlayer[i][8] %></h2>
                 </div>
-                <% }else if(Jersey[i] == "down"){ %>
-                    <div class="down">
-                        <h2><%= gPlayer[i][8] %>
-                        </h2>
-                    </div>
-                    <% } %>
+            <% }else if(Jersey[i] == "down"){ %>
+                <div class="down">
+                    <h2><%= gPlayer[i][8] %></h2>
+                </div>
+            <% } %>
+
 
             <!-- Position -->
+            <!-- If Position[i] is true, then the user guessed the correct position.
+                 If not, the user did not guess the correct position.
+                 The style of the div will change based on this. -->
             <% if(Position[i] == true){ %>
-            <div class="match">
-                <h2><%= gPlayer[i][9] %>
-                </h2>
-            </div>
+                <div class="match">
+                    <h2><%= gPlayer[i][9] %></h2>
+                </div>
             <% }else{ %>
                 <div class="nomatch">
-                    <h2><%= gPlayer[i][9] %>
-                    </h2>
+                    <h2><%= gPlayer[i][9] %></h2>
                 </div>
-                <% } %>
+            <% } %>
 
 
-                <!-- College -->
-                <% if(College[i] == true){ %>
-            <div class="match">
-                <h2><%= gPlayer[i][10] %>
-                </h2>
-            </div>
+            <!-- College -->
+            <!-- If College[i] is true, then the user guessed the correct college.
+                 If not, the user did not guess the correct college.
+                 The style of the div will change based on this. -->
+            <% if(College[i] == true){ %>
+                <div class="match">
+                    <h2><%= gPlayer[i][10] %></h2>
+                </div>
             <% }else{ %>
                 <div class="nomatch">
-                    <h2><%= gPlayer[i][10] %>
-                    </h2>
+                    <h2><%= gPlayer[i][10] %></h2>
                 </div>
-                <% } %>
+            <% } %>
+
         </div>
-        <% } %>
+    <% } %>
 
 
-            </div>
+    </div>
 
-            </body>
-
-            </html>
+        
+    
+<%- include("footer.ejs") %>
