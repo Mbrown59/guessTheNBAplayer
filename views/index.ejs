@@ -2,7 +2,12 @@
 
     <div id="input">
         <form action="/" method="post">
-            <input type="text" placeholder="Type your guess here" name="Typeguess" />
+            <input type="text" list="allPlayers" placeholder="Type your guess here" name="Typeguess" />
+            <datalist id="allPlayers">
+                <% for(var i = 0; i < List.length; i++){ %>
+                <option value="<%= List[i] %>"></option>
+                <% } %>
+             </datalist>
             <button type="submit" name="button">Enter</button>
         </form>
     </div>
@@ -48,7 +53,7 @@
         <div>
             <h2>Position</h2>
         </div>
-        
+
         <div>
             <h2>College</h2>
         </div>

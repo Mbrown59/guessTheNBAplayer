@@ -188,6 +188,7 @@ app.get("/", async function (req, res) {
       Experience: correctExperience,
       Jersey: correctJersey,
       GameOver: gameOverMessage,
+      List: Name,
     });
   } catch (error) {
     res.render("index.ejs", { content: JSON.stringify(error.status) });
@@ -307,6 +308,7 @@ app.post("/", async function (req, res)
         Experience: correctExperience,
         Jersey: correctJersey,
         GameOver: gameOverMessage,
+        List: Name,
         });
     }
     else
@@ -331,6 +333,7 @@ app.post("/", async function (req, res)
       Experience: correctExperience,
       Jersey: correctJersey,
       GameOver: gameOverMessage,
+      List: Name,
     });
   }
 });
