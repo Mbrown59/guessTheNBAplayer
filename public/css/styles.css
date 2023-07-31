@@ -186,7 +186,82 @@ button:hover {
   }
 
   .glow {
-    animation: animate 5s infinite alternate;
+    color: #0079ff;
+    text-shadow: none;
+  }
+  #scoreboard {
+    border-radius: 20px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 60%;
+  }
+
+  button {
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    font-family: "Handjet", cursive;
+    text-shadow: none;
+    height: 40px;
+  }
+
+  .playAgain {
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    font-family: "Handjet", cursive;
+    height: 70px;
+    width: 70px;
+    font-weight: bold;
+  }
+  
+  button:hover {
+    background-color: #ff1700;
+    color: white;
+  }
+
+  #guesses div {
+    border: black 2px solid;
+    padding: 0px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  #guesses div img {
+    width: 70% !important;
+  }
+  
+  #guesses div #player {
+    width: 100% !important;
+  }
+
+ 
+
+  #Pname
+  {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) 
+{
+  #guesses div h2
+  {
+    font-size: 20%;
+  }
+  #guesses div h2 {
+    color: black;
+    font-weight: bold;
+    font-size: 70%;
+  }
+
+  .glow {
     color: #0079ff;
   }
   #scoreboard {
@@ -245,14 +320,6 @@ button:hover {
   #Pname
   {
     display: none !important;
-  }
-}
-
-@media (max-width: 480px) 
-{
-  #guesses div h2
-  {
-    font-size: 20%;
   }
 }
 

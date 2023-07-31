@@ -43,7 +43,7 @@
         </div>
 
         <div>
-            <h2>Experience</h2>
+            <h2 class="flex-wrap">Experience</h2>
         </div>
 
         <div>
@@ -213,11 +213,11 @@
                  If not, the user did not guess the correct college.
                  The style of the div will change based on this. -->
             <% if(College[i] == true){ %>
-                <div class="match">
+                <div class="match flex-wrap">
                     <h2><%= gPlayer[i][10] %></h2>
                 </div>
             <% }else{ %>
-                <div class="nomatch">
+                <div class="nomatch flex-wrap">
                     <h2><%= gPlayer[i][10] %></h2>
                 </div>
             <% } %>
