@@ -43,11 +43,11 @@
         </div>
 
         <div>
-            <h2>Years of Experience</h2>
+            <h2>Experience</h2>
         </div>
 
         <div>
-            <h2>Jersey Number</h2>
+            <h2>Jersey #</h2>
         </div>
 
         <div>
@@ -73,12 +73,12 @@
             <% if(Player[i] == true){ %>
                 <div class="match">
                     <img id="player" src=<%=gPlayer[i][0] %> alt=<%= gPlayer[i][1] %>>
-                    <h2><%= gPlayer[i][1] %></h2>
+                    <h2 id="Pname"><%= gPlayer[i][1] %></h2>
                 </div>
             <% }else{ %>
                 <div class="nomatch">
                     <img id="player" src=<%=gPlayer[i][0] %> alt=<%= gPlayer[i][1] %>>
-                    <h2><%= gPlayer[i][1] %></h2>
+                    <h2 id="Pname"><%= gPlayer[i][1] %></h2>
                 </div>
             <% } %>
 
@@ -160,15 +160,15 @@
                  The style of the div will change based on this. -->
             <% if(Experience[i] == true){ %>
                 <div class="match">
-                    <h2><%= gPlayer[i][7] %></h2>
+                    <h2><%= gPlayer[i][7] %> Years</h2>
                 </div>
             <% }else if(Experience[i] == "up"){ %>
                 <div class="up">
-                    <h2><%= gPlayer[i][7] %></h2>
+                    <h2><%= gPlayer[i][7] %> Years</h2>
                 </div>
             <% }else if(Experience[i] == "down"){ %>
                 <div class="down">
-                    <h2><%= gPlayer[i][7] %></h2>
+                    <h2><%= gPlayer[i][7] %> Years</h2>
                 </div>
             <% } %>
 

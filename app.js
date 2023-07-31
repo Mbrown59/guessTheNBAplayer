@@ -128,7 +128,7 @@ app.get("/", async function (req, res) {
 
 
     //if the random player's position is null, then set the position to undetermined
-    var P = randomPlayer.DepthChartPosition;
+    var P = randomPlayer.Position;
     if(P == null)
     {
         P = "Undetermined";
@@ -254,7 +254,7 @@ app.post("/", async function (req, res)
     console.log(feet + " " + inches);
     
     //if the random's player's position is null, then set the experience to undetermined
-    var P = randomPlayer.DepthChartPosition;
+    var P = guessResultInfo.data.Position;
     if(P == null)
     {
         P = "Undetermined";
@@ -383,11 +383,12 @@ function checkAnswers(a, r)
     if(a[4] == r[4])
     {
         correctConference.push(true);
-        console.log("Conferences match");
+        console.log("Conferences match: " + a[4] + " " + r[4]);
     }
     else
     {
         correctConference.push(false);
+        console.log("Conferences don't match: " + a[4] + " " + r[4]);
     }
 
 
