@@ -343,7 +343,7 @@ app.post("/", async function (req, res)
 });
 
 //start server
-app.listen(port, function (req, res) {
+app.listen(process.env.PORT || port, function (req, res) {
   console.log("Server listening on port " + port);
 });
 
