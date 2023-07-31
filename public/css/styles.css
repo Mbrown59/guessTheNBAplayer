@@ -171,6 +171,7 @@ button:hover {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  word-wrap: break-word;
 }
 
 #guesses div h2 {
