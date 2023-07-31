@@ -232,6 +232,7 @@ button:hover {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    word-wrap: break-word;
   }
 
   #guesses div img {
@@ -306,6 +307,8 @@ button:hover {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    word-wrap: break-word;
+
   }
 
   #guesses div img {
@@ -315,8 +318,6 @@ button:hover {
   #guesses div #player {
     width: 100% !important;
   }
-
- 
 
   #Pname
   {
