@@ -177,14 +177,11 @@ button:hover {
 #guesses div h2 {
   color: black;
   font-weight: bold;
+  font-size: 2vw;
 }
 
 @media (max-width: 1200px) {
-  #guesses div h2 {
-    color: black;
-    font-weight: bold;
-    font-size: 70%;
-  }
+ 
 
   .glow {
     color: #0079ff;
@@ -243,8 +240,6 @@ button:hover {
     width: 100% !important;
   }
 
- 
-
   #Pname
   {
     display: none !important;
@@ -253,16 +248,27 @@ button:hover {
 
 @media (max-width: 480px) 
 {
-  #guesses div h2
-  {
-    font-size: 20%;
+  .match {
+    border: #06ff00 4px solid !important;
+    box-shadow: none !important;
   }
-  #guesses div h2 {
-    color: black;
-    font-weight: bold;
-    font-size: 70%;
+  
+  /* Player Info */
+  .nomatch {
+    border: #ff1700 4px solid !important;
+    box-shadow: none !important;
   }
+  
+  .up {
+    border: #F6FA70 4px solid !important;
+    box-shadow: none !important;
+  }
+  
+  .down {
+    border: #ff8e00 4px solid !important;
+    box-shadow: none !important;
 
+  }
   .glow {
     color: #0079ff;
   }
@@ -338,26 +344,26 @@ button:hover {
 .match {
   border: #06ff00 4px solid !important;
   box-shadow: 0 0 5px #06ff00, 0 0 25px #06ff00, 0 0 50px #06ff00,
-    0 0 75px #06ff00, 0 0 100px #06ff00 !important;
+    0 0 75px #06ff00, 0 0 100px #06ff00 ;
 }
 
 /* Player Info */
 .nomatch {
   border: #ff1700 4px solid !important;
   box-shadow: 0 0 5px #ff1700, 0 0 25px #ff1700, 0 0 50px #ff1700,
-    0 0 75px #ff1700, 0 0 100px #ff1700 !important;
+    0 0 75px #ff1700, 0 0 100px #ff1700 ;
 }
 
 .up {
   border: #F6FA70 4px solid !important;
   box-shadow: 0 0 5px #F6FA70, 0 0 25px #F6FA70, 0 0 50px #F6FA70,
-    0 0 75px #F6FA70, 0 0 100px #F6FA70 !important;
+    0 0 75px #F6FA70, 0 0 100px #F6FA70 ;
 }
 
 .down {
   border: #ff8e00 4px solid !important;
   box-shadow: 0 0 5px #ff8e00, 0 0 25px #ff8e00, 0 0 50px #ff8e00,
-    0 0 75px #ff8e00, 0 0 100px #ff8e00 !important;
+    0 0 75px #ff8e00, 0 0 100px #ff8e00 ;
 }
 
 /* footer */
