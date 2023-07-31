@@ -169,6 +169,7 @@ app.get("/", async function (req, res) {
          gameOver = false;
         numberOfguesses = 0;
         numberRemaining = 20;
+        randomPlayerInfo = [];
     }
     
 
@@ -215,6 +216,7 @@ app.post("/", async function (req, res)
         gameOverMessage = "Sorry! You Ran Out of Guesses. The Player was " + randomPlayerInfo[1] + ".";
         console.log("game over");
         createRandom = false;
+        randomPlayerInfo = [];
     }
 
     //telling the server not to create another random player
@@ -248,6 +250,8 @@ app.post("/", async function (req, res)
     var inches = (((guessResultInfo.data.Height / 12) % 1) * 12).toFixed(0);
     var height = feet + " ' " + inches;
     var weight = guessResultInfo.data.Weight + "lb";
+
+    console.log(feet + " " + inches);
     
     //if the random's player's position is null, then set the experience to undetermined
     var P = randomPlayer.DepthChartPosition;
@@ -348,7 +352,7 @@ app.listen(port, function (req, res) {
 function checkAnswers(a, r)
 {
     //checking to see if user guessed the correct player
-    if(a[1].toLowerCase() === r[1].toLowerCase())
+    if(a[1] == r[1])
     {
         console.log("Names Match");
         correctGuess.push(true);
