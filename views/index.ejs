@@ -8,17 +8,25 @@
                 <option value="<%= List[i] %>"></option>
                 <% } %>
              </datalist>
-            <button type="submit" name="button">Enter</button>
+            <button type="submit" name="button">Enter</button> 
+
         </form>
     </div>
 
-    <h1 class="glow">Rules</h2>
+
+
+    <form action="/rules" method="get">
+        <button type="submit" id="rulesBtn">Rules</button>
+    </form>
+
     <div id="rules">
         <div class="match">✅</div>
         <div class="nomatch">❌</div>
         <div class="up">☝️</div>
         <div class="down">👇</div>
     </div>
+
+    
 
 
     <div id="guesses" class="infoHeader">

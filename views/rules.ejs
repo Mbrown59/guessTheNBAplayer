@@ -1,0 +1,30 @@
+<%- include("header.ejs") %>
+
+
+<div class="show">
+    <ul id="ruleList">
+        <li>For your first guess, guess a random player.</li>
+        <li>For your remaining guesses, you should pick a player based on the hints the game gives you!</li>
+        <li>If one of the categories shows up green, then you got it correct! If one of the categories shows up red, then you got it incorrect!</li>
+        <ul>
+            <li>For example, you guessed the incorrect player but the college category shows up green. This means the target player played college basketball at the same college as the player you guessed!</li>
+        </ul>
+        <li>If one of the categories shows up yellow, then the number shown in that category should be increased. If one of the categories shows up orange, then the number shown in that category should be decreased. The Height, Weight, Experience, and Jersey # are the only categories that will show these colors.</li>
+        <ul>
+            <li>For example, you guessed the incorrect player but the Height category is yellow. This means the target player has a Height greater than the player you guessed!
+            </li>
+        </ul>
+    </ul>
+    <div id="rules">
+        <div class="match">✅</div>
+        <div class="nomatch">❌</div>
+        <div class="up">☝️</div>
+        <div class="down">👇</div>
+    </div>
+</div>
+
+<form action="/" method="get">
+    <button class="playAgain" type="submit">Go Back</button>
+</form>
+
+<%- include("footer.ejs") %>

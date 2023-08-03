@@ -127,11 +127,24 @@ button {
   font-weight: bold;
 }
 
-button:hover {
+button:hover, #rulesBtn:hover {
   background-color: #ff1700;
   color: white;
   text-shadow: 0 0 5px white, 0 0 25px white, 0 0 50px white, 0 0 75px white,
     0 0 100px white;
+}
+
+#rulesBtn
+{
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+  text-shadow: 0 0 5px black, 0 0 25px black, 0 0 50px black, 0 0 75px black,
+  0 0 100px black;
+  font-family: "Handjet", cursive;
+  text-shadow: none;
+  height: 70px;
+  width: 70px;
 }
 
 /* rules */
@@ -180,156 +193,7 @@ button:hover {
   font-size: 2vw;
 }
 
-@media (max-width: 1200px) {
- 
 
-  .glow {
-    color: #0079ff;
-    text-shadow: none;
-  }
-  #scoreboard {
-    border-radius: 20px;
-    background-color: white;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    width: 60%;
-  }
-
-  button {
-    border-radius: 20px;
-    background-color: white;
-    color: black;
-    font-family: "Handjet", cursive;
-    text-shadow: none;
-    height: 40px;
-  }
-
-  .playAgain {
-    border-radius: 20px;
-    background-color: white;
-    color: black;
-    font-family: "Handjet", cursive;
-    height: 70px;
-    width: 70px;
-    font-weight: bold;
-  }
-  
-  button:hover {
-    background-color: #ff1700;
-    color: white;
-  }
-
-  #guesses div {
-    border: black 2px solid;
-    padding: 0px;
-    background-color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    word-wrap: break-word;
-  }
-
-  #guesses div img {
-    width: 70% !important;
-  }
-  
-  #guesses div #player {
-    width: 100% !important;
-  }
-
-  #Pname
-  {
-    display: none !important;
-  }
-}
-
-@media (max-width: 480px) 
-{
-  .match {
-    border: #06ff00 4px solid !important;
-    box-shadow: none !important;
-  }
-  
-  /* Player Info */
-  .nomatch {
-    border: #ff1700 4px solid !important;
-    box-shadow: none !important;
-  }
-  
-  .up {
-    border: #F6FA70 4px solid !important;
-    box-shadow: none !important;
-  }
-  
-  .down {
-    border: #ff8e00 4px solid !important;
-    box-shadow: none !important;
-
-  }
-  .glow {
-    color: #0079ff;
-  }
-  #scoreboard {
-    border-radius: 20px;
-    background-color: white;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    width: 60%;
-  }
-
-  button {
-    border-radius: 20px;
-    background-color: white;
-    color: black;
-    font-family: "Handjet", cursive;
-    height: 40px;
-  }
-
-  .playAgain {
-    border-radius: 20px;
-    background-color: white;
-    color: black;
-    font-family: "Handjet", cursive;
-    height: 70px;
-    width: 70px;
-    font-weight: bold;
-  }
-  
-  button:hover {
-    background-color: #ff1700;
-    color: white;
-  }
-
-  #guesses div {
-    border: black 2px solid;
-    padding: 0px;
-    background-color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    word-wrap: break-word;
-
-  }
-
-  #guesses div img {
-    width: 70% !important;
-  }
-  
-  #guesses div #player {
-    width: 100% !important;
-  }
-
-  #Pname
-  {
-    display: none !important;
-  }
-}
 
 
 
@@ -377,4 +241,235 @@ footer {
  margin-top: auto;
   width: 100%;
 }
+
+/* Rules */
+.show
+{
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+#ruleList
+{
+  width: 40%;
+  border: 4px #0079ff solid;
+  box-shadow: 0 0 5px #0079ff, 0 0 25px #0079ff, 0 0 50px #0079ff,
+  0 0 75px #0079ff, 0 0 100px #0079ff ;
+}
+
+
+
+
+#ruleList li
+{
+  color: white;
+  font-size: 2em;
+}
+
+
+
+/* Responsiveness */
+@media (max-width: 1200px) {
+ 
+  #ruleList
+  {
+    width: 80%;
+    border: 4px #0079ff solid;
+    box-shadow: none;
+  }
+
+  .glow {
+    color: #0079ff;
+    text-shadow: none;
+  }
+  #scoreboard {
+    border-radius: 20px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 60%;
+  }
+
+  button {
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    font-family: "Handjet", cursive;
+    text-shadow: none;
+    height: 40px;
+  }
+
+  #rulesBtn
+  {
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    font-family: "Handjet", cursive;
+    text-shadow: none;
+    height: 70px;
+    width: 70px;
+  }
+
+  .playAgain {
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    font-family: "Handjet", cursive;
+    height: 70px;
+    width: 70px;
+    font-weight: bold;
+  }
+  
+  button:hover, #rulesBtn:hover
+   {
+    background-color: #ff1700;
+    color: white;
+  }
+
+  #guesses div {
+    border: black 2px solid;
+    padding: 0px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+
+  #guesses div img {
+    width: 70% !important;
+  }
+  
+  #guesses div #player {
+    width: 100% !important;
+  }
+
+  #Pname
+  {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) 
+{
+  #ruleList
+  {
+    width: 80%;
+    border: 4px #0079ff solid;
+    box-shadow: none;
+  }
+
+  .match {
+    border: #06ff00 4px solid !important;
+    box-shadow: none !important;
+  }
+  
+  /* Player Info */
+  .nomatch {
+    border: #ff1700 4px solid !important;
+    box-shadow: none !important;
+  }
+  
+  .up {
+    border: #F6FA70 4px solid !important;
+    box-shadow: none !important;
+  }
+  
+  .down {
+    border: #ff8e00 4px solid !important;
+    box-shadow: none !important;
+
+  }
+  .glow {
+    color: #0079ff;
+  }
+  #scoreboard {
+    border-radius: 20px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 60%;
+  }
+
+  button {
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    font-family: "Handjet", cursive;
+    height: 40px;
+  }
+
+  #rulesBtn
+  {
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    font-family: "Handjet", cursive;
+    text-shadow: none;
+    height: 70px;
+    width: 70px;
+  }
+
+  .playAgain {
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    font-family: "Handjet", cursive;
+    height: 70px;
+    width: 70px;
+    font-weight: bold;
+  }
+
+  #rulesBtn
+  {
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+    font-family: "Handjet", cursive;
+    text-shadow: none;
+    height: 70px;
+    width: 70px;
+  }
+  
+  button:hover, #rulesBtn {
+    background-color: #ff1700;
+    color: white;
+  }
+
+  #guesses div {
+    border: black 2px solid;
+    padding: 0px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    word-wrap: break-word;
+
+  }
+
+  #guesses div img {
+    width: 70% !important;
+  }
+  
+  #guesses div #player {
+    width: 100% !important;
+  }
+
+  #Pname
+  {
+    display: none !important;
+  }
+}
+
 
